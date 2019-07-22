@@ -60,10 +60,16 @@ dependencies {
     compileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
     compileOnly "com.google.guava:guava:$guava_version"
     compileOnly "joda-time:joda-time:$joda_time_version"
+    
     // test
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junit_verison"
+    
+    // tool-test
+    testCompileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
+    testCompileOnly "com.google.guava:guava:$guava_version"
+    testCompileOnly "joda-time:joda-time:$joda_time_version"
 }
