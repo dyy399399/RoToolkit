@@ -14,12 +14,12 @@ buildscript {
         // test
         junit_verison = "5.5.0"
     }
-    
+
     repositories {
         maven { url "https://maven.aliyun.com/nexus/content/groups/public" }
         maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
     }
-    
+
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlin_version"
@@ -32,6 +32,10 @@ version '0.0.1'
 
 apply plugin: "java"
 apply plugin: "kotlin"
+apply plugin: 'jacoco'
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 repositories {
     maven { url "https://maven.aliyun.com/repository/central" }
@@ -60,16 +64,25 @@ dependencies {
     compileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
     compileOnly "com.google.guava:guava:$guava_version"
     compileOnly "joda-time:joda-time:$joda_time_version"
-    
+
     // test
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     testCompileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junit_verison"
-    
+
     // tool-test
     testCompileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
     testCompileOnly "com.google.guava:guava:$guava_version"
     testCompileOnly "joda-time:joda-time:$joda_time_version"
 }
+
+jacocoTestReport {
+    reports {
+        xml.setEnabled(true)
+        html.setEnabled(false)
+    }
+}
+
+check.dependsOn jacocoTestReport
