@@ -1,17 +1,14 @@
 buildscript {
     ext {
-        // language
         kotlin_version = "1.3.41"
         kotlin_coroutine_version = "1.1.1"
-        // util
         guava_version = "27.0-jre"
         jackson_version = "2.9.8"
         jsonpath_version = "2.4.0"
-        poi_version = "4.0.0"
+        poi_version = "4.1.0"
         hutool_version = "4.3.2"
         joda_time_version = "2.10.2"
         mvel_version = "2.4.4.Final"
-        // test
         junit_verison = "5.5.0"
     }
 
@@ -48,6 +45,7 @@ dependencies {
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlin_version"
     compileOnly "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+    
     // jackson
     compileOnly "com.fasterxml.jackson.core:jackson-core:$jackson_version"
     compileOnly "com.fasterxml.jackson.core:jackson-databind:$jackson_version"
@@ -60,7 +58,10 @@ dependencies {
     compileOnly "com.fasterxml.jackson.dataformat:jackson-dataformat-properties:$jackson_version"
     compileOnly "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:$jackson_version"
     compileOnly "com.fasterxml.jackson.dataformat:jackson-dataformat-yaml:$jackson_version"
+    
     // tool
+    compileOnly "org.apache.poi:poi:$poi_version"
+    compileOnly "org.apache.poi:poi-ooxml:$poi_version"
     compileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
     compileOnly "com.google.guava:guava:$guava_version"
     compileOnly "joda-time:joda-time:$joda_time_version"
@@ -73,6 +74,8 @@ dependencies {
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junit_verison"
 
     // tool-test
+    testCompileOnly "org.apache.poi:poi:$poi_version"
+    testCompileOnly "org.apache.poi:poi-ooxml:$poi_version"
     testCompileOnly "com.jayway.jsonpath:json-path:$jsonpath_version"
     testCompileOnly "com.google.guava:guava:$guava_version"
     testCompileOnly "joda-time:joda-time:$joda_time_version"
