@@ -1,5 +1,7 @@
 package com.chaosmin.toolkit
 
+import org.junit.jupiter.api.Assertions.assertFalse
+import org.junit.jupiter.api.Assertions.assertTrue
 import org.junit.jupiter.api.Test
 
 /**
@@ -37,7 +39,7 @@ class DateUtilTest {
     }
 
     @Test
-    fun cutDate(){
+    fun cutDate() {
         val date = DateUtil.now()
         println(DateUtil.cutDate(date))
     }
@@ -49,5 +51,15 @@ class DateUtilTest {
         println("$date add one day: $addOneDay")
         val minusOneDay = DateUtil.addDays(date, -1)
         println("$date minus one day: $minusOneDay")
+    }
+
+    @Test
+    fun sameDate() {
+        val d1 = DateUtil.parse("2019-07-25 10:00:00", DateUtil.DATETIME_FORMAT)
+        val d2 = DateUtil.parse("2019-07-25 06:10:00", DateUtil.DATETIME_FORMAT)
+        assertTrue(DateUtil.sameDate(d1, d2))
+
+        val d3 = DateUtil.parse("2019-07-28 10:00:00", DateUtil.DATETIME_FORMAT)
+        assertFalse(DateUtil.sameDate(d1, d3))
     }
 }

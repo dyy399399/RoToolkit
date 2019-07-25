@@ -67,4 +67,11 @@ object DateUtil {
         val ldt = LocalDateTime.fromDateFields(date)
         return ldt.plusDays(days).toDate()
     }
+
+    /**
+     * compare with d1 and d2, and determine if it is the same day.
+     */
+    fun sameDate(d1: Date, d2: Date): Boolean {
+        return cutDate(d1).time.minus(cutDate(d2).time) == 0L
+    }
 }
