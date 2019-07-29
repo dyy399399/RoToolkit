@@ -90,7 +90,7 @@ class JsonUtilTest {
     @Test
     fun newArrayNode() {
         assertEquals(0, JsonUtil.newArrayNode().size())
-        assertEquals(3, JsonUtil.newArrayNode("name", listOf("ro", "ma", "ni")).size())
+        assertEquals(3, JsonUtil.newArrayNode(listOf("ro", "ma", "ni")).size())
     }
 
     @Test

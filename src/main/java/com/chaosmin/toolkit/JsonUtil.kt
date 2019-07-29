@@ -7,6 +7,7 @@ import com.fasterxml.jackson.databind.SerializationFeature
 import com.fasterxml.jackson.databind.node.*
 import com.fasterxml.jackson.module.kotlin.convertValue
 import com.fasterxml.jackson.module.kotlin.readValue
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -39,7 +40,7 @@ object JsonUtil {
             configure(JsonParser.Feature.ALLOW_TRAILING_COMMA, true)
             // formatted output
             configure(SerializationFeature.INDENT_OUTPUT, false)
-            dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA)
+            dateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA) as DateFormat
         }
     }
 
@@ -161,10 +162,9 @@ object JsonUtil {
 
     /**
      * create a new ArrayNode with key and value by ObjectMapper
-     * @param key key of node
      * @param value value of node(must be list)
      */
-    fun <T> newArrayNode(key: String, value: List<T>): JsonNode {
+    fun <T> newArrayNode(value: List<T>): JsonNode {
         return objectMapper.createArrayNode().addAll(value.mapNotNull { basicNode(it) })
     }
 }
