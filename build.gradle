@@ -10,6 +10,7 @@ buildscript {
         joda_time_version = "2.10.2"
         mvel_version = "2.4.4.Final"
         junit_verison = "5.5.0"
+        jwt_version = "7.6"
     }
 
     repositories {
@@ -65,6 +66,7 @@ dependencies {
     compile "com.jayway.jsonpath:json-path:$jsonpath_version"
     compile "com.google.guava:guava:$guava_version"
     compile "joda-time:joda-time:$joda_time_version"
+    compile "com.nimbusds:nimbus-jose-jwt:$jwt_version"
 
     // test
     testCompileOnly "org.junit.jupiter:junit-jupiter-api:$junit_verison"
