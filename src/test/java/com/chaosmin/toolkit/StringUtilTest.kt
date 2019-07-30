@@ -1,7 +1,7 @@
 package com.chaosmin.toolkit
 
-import org.junit.jupiter.api.Assertions.*
-import org.junit.jupiter.api.Test
+import org.junit.Assert.*
+import org.junit.Test
 
 /**
  * @author romani
